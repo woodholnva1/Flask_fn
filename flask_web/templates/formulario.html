@@ -1,0 +1,141 @@
+
+{% extends 'base.html' %}
+
+
+{% block head %} TEST PARA REDES SOCIALES{% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>  
+        Error!
+      </strong> 
+      {{ message }}
+    </div>
+
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+
+<form id="contacForm" method="POST" action="{{ url_for('Formulario')}}">
+    <div class="form-floating mb-3">
+      <input name= "email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+      <label for="floatingInput">Correo</label>
+    </div>
+    
+
+    <div class="form-floating mb-3">
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <select name= "edad" class="form-select" id="floatingSelect" aria-label="Floating label select example" required>
+              <option selected></optio>
+              <option value="18-25">18-25 Años</option>
+              <option value="26-33">26-33 Años</option>
+              <option value="34-40">34-40 Años</option>
+              <option value="40+">Mayor de 40 Años</option>
+            </select>
+            <label for="floatinSgSelect">Seleccione el Rango de Edad</label>
+          </div>
+        </div>
+
+        <div class="col-md">
+          <div class="form-floating">
+            <select name="value_sex" class="form-select form-select-sm" id="floatingSelectGrid" required>
+              <option selected></option>
+              {% for i in data.sexo %}
+              <option value="{{i}}">{{i}}</option>
+              {%endfor%}
+            </select>
+            <label for="floatingSelectGrid">Sexo</label>
+          </div>
+        </div>
+     
+
+
+    <div class="form-floating mb-3">
+      <select name ="redFavorita" class="form-select" id="floatingSelect" aria-label="Floating label select example" required>
+        <option selected></option>
+        {%for i in data.redes%}
+        <option value="{{i}}">{{i}}</option>
+        {%endfor%}
+      </select>
+      <label for="floatingSelect">Seleccione su Red Social Preferida!</label>
+    </div>
+
+
+    <div class="form-floating mb-3">
+    <div class="row g-2">
+      <div class="col-md">
+        <div class="form-floating">
+          <select name="tmpFacebook" class="form-select" id="floatingSelectGrid" required>
+            <option selected></option>
+            {% for i in data.horas %}
+            <option value="{{i}}Hrs">{{i}} Hrs</option>
+            {%endfor%}
+          </select>
+          <label for="floatingSelectGrid">Tiempo promedio al día en Facebook</label>
+        </div>
+      </div>
+
+      <div class="col-md">
+        <div class="form-floating">
+          <select name="tmpWhatsApp"  class="form-select" id="floatingSelectGrid" required> 
+            <option selected></option>
+            
+            {% for i in data.horas %}
+            <option value="{{i}}Hrs">{{i}} Hrs</option>
+            {%endfor%}
+          </select>
+          <label for="floatingSelectGrid">Tiempo promedio al día en WhatsApp</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-floating mb-3">
+    <div class="row g-2">
+      <div class="col-md">
+        <div class="form-floating">
+          <select name="tmpTwitter" class="form-select form-select-sm" id="floatingSelectGrid" required>
+            <option selected></option>
+            {% for i in data.horas %}
+            <option value="{{i}}Hrs">{{i}} Hrs</option>
+            {%endfor%}
+          </select>
+          <label for="floatingSelectGrid">Tiempo promedio al día en Twitter</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <select name="tmpInstagram" class="form-select form-select-sm" id="floatingSelectGrid" required>
+            <option selected></option>
+            {% for i in data.horas %}
+            <option value="{{i}}Hrs">{{i}} Hrs</option>
+            {%endfor%}
+          </select>
+          <label for="floatingSelectGrid">Tiempo promedio al día en Instagram</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <select name="tmpTiktok" class="form-select form-select-sm" id="floatingSelectGrid" required>
+            <option selected></option>
+            {% for i in data.horas %}
+            <option value="{{i}}Hrs">{{i}} Hrs</option>
+            {%endfor%}
+          </select>
+          <label for="floatingSelectGrid">Tiempo promedio al día en Tiktok</label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar Formulario</button>
+    </div>
+    
+  </div>
+  </form>
+  {% endblock %}

@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+
+
+{% block head %} 
+Estadisticas de la Encuesta
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-lg text-center">
+
+                      <div class="row" style="width: auto; padding: auto;">
+                        <div class="col-sm-8">
+                              <div class="card">
+                                          <div class="card-body">
+                                                <h5 class="card-header">Rango de Edades</h5>
+                                            <p class="card-text"><canvas id="Chart2"></canvas></p>
+                                          </div>
+                                    </div>
+                                 
+                        </div>
+                        <div class="col-sm-4" style="width: auto; padding: auto;">
+                              <div class="card" >
+                              <div class="card-body">
+                                <h5 class="card-header">Red Social Preferida</h5>
+                                <p class="card-text"><canvas id="Chart1"></canvas></p>
+                              </div>
+                                                </div>
+            </div>
+      </div>
+
+                  <script>
+
+                var ctx = document.getElementById("Chart1").getContext("2d");
+                var MyChart_1 = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: {{lista|safe}},
+                        datasets: [
+                              {
+                                    label: "Red Social Preferida",
+                                    backgroundColor:[ 
+                                    'rgb(255, 99, 132)',
+                                    'rgb(54, 162, 235)',
+                                    'rgb(255, 205, 86)',
+                                    'rgb(233, 150, 122)',
+                                    'rgb( 19, 141, 117)'
+                                    ],
+                                    data: [{{chart1.Facebook}},
+                                          {{chart1.Instagram}},
+                                          {{chart1.Tiktok}},
+                                          {{chart1.Twitter}},
+                                          {{chart1.Whatsapp}}],
+                              }                  
+                              ]
+                    }
+                });
+
+                
+
+
+                var ctx = document.getElementById("Chart2").getContext("2d");
+                var MyChart_3 = new Chart(ctx, {
+                    type: 'bar',
+                    options: {
+                        responsive: true,
+                        plugins: {
+                        legend: {
+                        position: 'top',
+                        },
+                              title: {
+                              display: true,
+                              text: 'Chart Edades'
+                              }
+                  }
+             },
+                    data: {
+                        labels: {{lista|safe}},
+                        datasets: [
+                              
+                              {
+                                    label: "18-25",
+                                    backgroundColor:[ 
+                                    'rgb(255, 205, 86)',
+                                    'rgb(255, 205, 86)',
+                                    'rgb(255, 205, 86)',
+                                    'rgb(255, 205, 86)',
+                                    'rgb(255, 205, 86)',
+
+                                    ],
+                                    data: [
+                                          {{chart2.Edad_1.Facebook|safe}},
+                                          {{chart2.Edad_1.Instagram|safe}},
+                                          {{chart2.Edad_1.Tiktok|safe}},
+                                          {{chart2.Edad_1.Twitter|safe}},
+                                          {{chart2.Edad_1.Whatsapp|safe}}]
+                              },
+                              {
+                                    label: "26-33",
+                                    backgroundColor:[ 
+                                    'rgb( 19, 141, 117)',
+                                    'rgb( 19, 141, 117)',
+                                    'rgb( 19, 141, 117)',
+                                    'rgb( 19, 141, 117)',
+                                    'rgb( 19, 141, 117)',
+                                    ],
+                                    data: [
+                                          {{chart2.Edad_2.Facebook|safe}},
+                                          {{chart2.Edad_2.Instagram|safe}},
+                                          {{chart2.Edad_2.Tiktok|safe}},
+                                          {{chart2.Edad_2.Twitter|safe}},
+                                          {{chart2.Edad_2.Whatsapp|safe}}]
+                              },
+                              {
+                                    label: "34-40",
+                                    backgroundColor:[
+                                    'rgb(233, 150, 122)',
+                                    'rgb(233, 150, 122)',
+                                    'rgb(233, 150, 122)',
+                                    'rgb(233, 150, 122)',
+                                    'rgb(233, 150, 122)',
+                                    ],
+                                    data: [
+                                          {{chart2.Edad_3.Facebook|safe}},
+                                          {{chart2.Edad_3.Instagram|safe}},
+                                          {{chart2.Edad_3.Tiktok|safe}},
+                                          {{chart2.Edad_3.Twitter|safe}},
+                                          {{chart2.Edad_3.Whatsapp|safe}}
+                                    ]
+                              },
+                              {
+                                    label: "40+",
+                                    backgroundColor:[ 
+                                    'rgb(255, 99, 132)',
+                                    'rgb(255, 99, 132)',
+                                    'rgb(255, 99, 132)',
+                                    'rgb(255, 99, 132)',
+                                    'rgb(255, 99, 132)',
+                                    ],
+                                    data: [
+                                          {{chart2.Edad_4.Facebook|safe}},
+                                          {{chart2.Edad_4.Instagram|safe}},
+                                          {{chart2.Edad_4.Tiktok|safe}},
+                                          {{chart2.Edad_4.Twitter|safe}},
+                                          {{chart2.Edad_4.Whatsapp|safe}}
+                                    ]
+                              }
+                              ]
+                    },
+                });
+
+                
+            </script>
+      {% endblock %}
+    
+

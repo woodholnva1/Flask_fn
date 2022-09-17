@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{% block head %}Pagina Principal{% endblock %}
+
+
+
+{% block content %}
+<div class="area" >
+  <ul class="circles">
+          <li><img src="{{url_for('static',filename='/images/w.png')}} " alt="" style="width: 150px"></li>
+          <li></li>
+          <li><img src="{{url_for('static',filename='/images/f.png')}}" alt="" style="width: 150px"></li>
+          <li><img src="{{url_for('static',filename='/images/tk.png')}}" alt="" style="width: 150px"></li>
+          <li><img src="{{url_for('static',filename='/images/twitter.jpg')}}" alt="" style="width: 150px"></li>
+          <li><img src="{{url_for('static',filename='/images/inst.png')}}" alt="" style="width: 150px"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+  </ul>
+  
+      <div class="card" style="width: auto;">
+        <div class="card-body">
+          <h5 class="card-title">Bienvenidos a al Cuestionario de Uso de Redes Sociales!</h5>
+          <h6 class="card-subtitle mb-2 text-muted"></h6>
+          <p class="card-text">
+            <p> Instagram, Facebook o Twitter son solo algunas de las plataformas de redes sociales más famosas que existen en este siglo. Miles de millones de personas han estado usando las redes sociales desde el momento de su aparición. ¿Alguna vez te has preguntado cómo empezó todo? ¿Quién fue el fundador? ¿Cómo ha evolucionado?</p>
+
+            <p> Al analizar la historia de las redes sociales, muchos consideran que "Six Degrees.com" fue la primera web de redes sociales. Creada en Nueva York en 1997 (por el CEO Andrew Weinreich), incluía listas de amigos y familiares, así como afiliación escolar. Aunque probablemente no se consideró un "medio social" en relación a las redes sociales actuales, sí dio los primeros pasos para la tecnología de comunicación digital que hicieron posible posteriormente las redes sociales. Six Degrees estuvo activo hasta 2001 y se basó en el modelo de red social de la Web de Contactos.</p>
+
+            <p> Pero lo cierto es que tenemos que remontarnos un poco antes. Tom Truscott y Jim Ellis mencionaron por primera vez la red Usenet en 1979. Usenet permitía publicar publicaciones de noticias o artículos en grupos de noticias. Los sistemas Usenet fueron los responsables de la evolución de los clientes lectores de noticias. Y también son los precursores de los lectores de fuentes RSS.</p>
+
+            <p> Después llegarían los sistemas de tablón de anuncios (BBS), una de las primeras formas de las redes sociales a fines de los años setenta. Solo eran accesibles por una persona a la vez, pero permitía a los usuarios iniciar sesión y conectarse entre sí. Siguió siendo famoso hasta finales de la década de 1990.</p>
+          </p>
+          <a href="{{ url_for('Formulario')}}" class="card-link">Realizart test!</a>
+          <a href="{{ url_for('estadisticas')}}" class="card-link">verificar Estadisticas!</a>
+        </div>
+      </div>
+    
+</div >
+{% endblock %}
+
+
+ 
+    
+
